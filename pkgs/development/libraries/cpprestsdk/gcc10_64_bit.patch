@@ -1,0 +1,13 @@
+diff --git a/Release/src/http/common/http_helpers.cpp b/Release/src/http/common/http_helpers.cpp
+index 9ffbd20dd..1a52c81ad 100644
+--- a/Release/src/http/common/http_helpers.cpp
++++ b/Release/src/http/common/http_helpers.cpp
+@@ -88,7 +88,7 @@ size_t chunked_encoding::add_chunked_delimiters(_Out_writes_(buffer_size) uint8_
+ #ifdef _WIN32
+         sprintf_s(buffer, sizeof(buffer), "%8IX", bytes_read);
+ #else
+-        snprintf(buffer, sizeof(buffer), "%8zX", bytes_read);
++        snprintf(buffer, sizeof(buffer), "%8X", static_cast<std::uint32_t>(bytes_read));
+ #endif
+         memcpy(&data[0], buffer, 8);
+         while (data[offset] == ' ')
