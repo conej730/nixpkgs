@@ -2107,6 +2107,8 @@ in
 
   cppclean = callPackage ../development/tools/cppclean {};
 
+  cpprestsdk = callPackage ../development/libraries/cpprestsdk {};
+
   credhub-cli = callPackage ../tools/admin/credhub-cli {
     buildGoModule = buildGo114Module;
   };
